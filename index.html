@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>导师雷达 | 研究生导师测评</title>
+    <meta
+      name="description"
+      content="升级版研究生导师测评网站，包含五大维度问卷、导师四象限画像、人物标签和毕业风险评估。"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <div class="hero__badge">MENTOR RADAR / UPGRADE 2026</div>
+        <div class="hero__copy">
+          <p class="eyebrow">研究生导师测评网站</p>
+          <h1>从“能不能出成果”到“会不会把你逼到延毕”，一次测清。</h1>
+          <p class="hero__text">
+            31道题，五个维度，三大指标。输出导师类型、人物标签、毕业难度和风险画像。
+          </p>
+        </div>
+        <div class="hero__stats">
+          <article>
+            <span>31</span>
+            <p>测评问题</p>
+          </article>
+          <article>
+            <span>5</span>
+            <p>分析维度</p>
+          </article>
+          <article>
+            <span>P / S / R</span>
+            <p>核心指标</p>
+          </article>
+        </div>
+      </header>
+
+      <main class="app-grid">
+        <section class="panel intro-panel" id="intro-panel">
+          <div class="section-head">
+            <p class="section-kicker">玩法</p>
+            <h2>不只分“牛导羊导”，还把风险拆开看。</h2>
+          </div>
+          <div class="intro-panel__grid">
+            <article class="info-card">
+              <h3>五个维度</h3>
+              <p>导师背景与资源、科研水平与指导能力、push与PUA、实验室氛围、杂活与个人空间。</p>
+            </article>
+            <article class="info-card">
+              <h3>三个分数</h3>
+              <p>学术产出力 P 看资源和科研能力，情绪压力值 S 看环境强度，毕业危险指数 R 单独评估延毕风险。</p>
+            </article>
+            <article class="info-card">
+              <h3>结果更具体</h3>
+              <p>四象限导师类型之外，再给人物标签、危险等级、关键触发项和一句测评文案。</p>
+            </article>
+          </div>
+          <button class="cta-button" id="start-button" type="button">开始测评</button>
+        </section>
+
+        <section class="panel quiz-panel is-hidden" id="quiz-panel">
+          <div class="section-head section-head--compact">
+            <p class="section-kicker">问卷</p>
+            <div class="progress-copy">
+              <h2 id="progress-title">第 1 题</h2>
+              <span id="progress-meta">1 / 31</span>
+            </div>
+          </div>
+          <div class="progress-track" aria-hidden="true">
+            <div class="progress-bar" id="progress-bar"></div>
+          </div>
+
+          <article class="question-card">
+            <div class="question-card__meta">
+              <span id="question-category">导师背景与资源</span>
+              <span id="question-tag">Q1 / 基础画像</span>
+            </div>
+            <h3 id="question-title"></h3>
+            <p id="question-hint" class="question-card__hint"></p>
+            <div id="options" class="options"></div>
+          </article>
+
+          <div class="quiz-actions">
+            <button class="ghost-button" id="prev-button" type="button">上一题</button>
+            <button class="cta-button" id="next-button" type="button">下一题</button>
+          </div>
+        </section>
+
+        <section class="panel result-panel is-hidden" id="result-panel">
+          <div class="section-head">
+            <p class="section-kicker">结果</p>
+            <h2 id="result-title">你的导师是神仙导师</h2>
+          </div>
+
+          <article class="result-hero">
+            <div>
+              <p class="result-label">导师类型</p>
+              <strong id="mentor-type">神仙导师</strong>
+            </div>
+            <div>
+              <p class="result-label">人物标签</p>
+              <strong id="mentor-persona">学术灯塔型</strong>
+            </div>
+            <div>
+              <p class="result-label">毕业难度</p>
+              <strong id="difficulty-level">🌟 轻松毕业</strong>
+            </div>
+            <div>
+              <p class="result-label">延毕风险</p>
+              <strong id="risk-probability">12%</strong>
+            </div>
+          </article>
+
+          <p class="result-description" id="result-description"></p>
+          <p class="result-commentary" id="result-commentary"></p>
+          <p class="result-quote" id="result-quote"></p>
+
+          <div class="score-grid">
+            <article class="score-card">
+              <div class="score-card__head">
+                <h3>学术产出力 P</h3>
+                <span id="production-score">0</span>
+              </div>
+              <div class="meter">
+                <div class="meter__fill meter__fill--gold" id="production-meter"></div>
+              </div>
+            </article>
+            <article class="score-card">
+              <div class="score-card__head">
+                <h3>情绪压力值 S</h3>
+                <span id="pressure-score">0</span>
+              </div>
+              <div class="meter">
+                <div class="meter__fill meter__fill--red" id="pressure-meter"></div>
+              </div>
+            </article>
+            <article class="score-card">
+              <div class="score-card__head">
+                <h3>毕业危险指数 R</h3>
+                <span id="danger-score">0</span>
+              </div>
+              <div class="meter">
+                <div class="meter__fill meter__fill--blue" id="danger-meter"></div>
+              </div>
+            </article>
+          </div>
+
+          <div class="result-detail-grid">
+            <article class="highlights">
+              <h3>触发标签</h3>
+              <div id="highlight-tags" class="highlight-tags"></div>
+            </article>
+            <article class="highlights">
+              <h3>维度总结</h3>
+              <div id="dimension-summary" class="dimension-summary"></div>
+            </article>
+          </div>
+
+          <button class="cta-button" id="restart-button" type="button">重新测试</button>
+        </section>
+      </main>
+    </div>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
